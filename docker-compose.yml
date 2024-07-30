@@ -12,7 +12,7 @@ services:
   app:
     build: .
     container_name: app
-    command: make entrypoint
+    command: sh -c 'sleep 5 && make entrypoint'
     env_file:
       - .env
     volumes:
