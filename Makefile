@@ -11,8 +11,8 @@ entrypoint:
 	gunicorn --config gunicorn_config.py config.wsgi:application
 
 linters:
-	docker-compose exec -T app flake8 config/
-	docker-compose exec -T app flake8 users/
+	docker-compose -f docker-compose.dev.yml exec -T app flake8 config/
+	docker-compose -f docker-compose.dev.yml exec -T app flake8 users/
 
 stop:
 	docker-compose down
