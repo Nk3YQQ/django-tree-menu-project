@@ -1,0 +1,18 @@
+{% load menu_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% get_current_title %}</title>
+    <style>
+        .active {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% draw_menu 'profile_menu' %}
+    <h1>{% get_current_title %}</h1>
+    {% draw_menu 'under_menu' %}
+</body>
+</html>
