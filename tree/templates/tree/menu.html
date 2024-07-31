@@ -1,32 +1,5 @@
 <ul>
     {% for item, children in menu_tree %}
-    <li>
-        <a href="{{ item.get_url }}" class="{% if item.get_url == current_url %}active{% endif %}">
-            {{ item.name }}
-        </a>
-        {% if children %}
-        <ul>
-            {% for child, sub_children in children %}
-            <li>
-                <a href="{{ child.get_url }}" class="{% if child.get_url == current_url %}active{% endif %}">
-                    {{ child.name }}
-                </a>
-                {% if sub_children %}
-                <ul>
-                    {% for sub_child, _ in sub_children %}
-                    <li>
-                        <a href="{{ sub_child.get_url }}"
-                           class="{% if sub_child.get_url == current_url %}active{% endif %}">
-                            {{ sub_child.name }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </li>
+        {% include 'tree/menu_item.html' with item=item children=children current_url=current_url %}
     {% endfor %}
 </ul>
