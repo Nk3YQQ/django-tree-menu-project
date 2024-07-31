@@ -1,5 +1,5 @@
 run:
-	docker-compose up --build
+	docker-compose up --build -d
 
 run-test:
 	docker-compose -f docker-compose.dev.yml up --build -d
