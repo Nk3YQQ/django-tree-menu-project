@@ -25,21 +25,18 @@ def get_named_url(current_url):
 def convert_menu_items_to_menu_tree(menu_items):
     """ Функция преобразует элементы меню в древовидное меню """
 
-    items_dict = {item.id: item for item in menu_items}
-    tree = {}
+    tree = []
+    children_dict = {item.id: [] for item in menu_items}
 
     for item in menu_items:
-        print(item.parent_id)
-
-        if not item.parent_id:
-            tree[item.id] = (item, [])
-
+        if item.parent_id:
+            children_dict[item.parent_id].append(item)
         else:
-            parent = items_dict.get(item.parent_id)
-            print(parent)
-            if parent:
-                if parent.id not in tree:
-                    tree[parent.id] = (parent, [])
-                tree[parent.id][1].append((item, []))
+            tree.append((item, []))
 
-    return list(tree.values())
+    def build_tree(parent_item):
+        if parent_item.id in children_dict:
+            return parent_item, [build_tree(child) for child in children_dict[parent_item.id]]
+        return parent_item, []
+
+    return list(build_tree(item[0]) for item in tree)
