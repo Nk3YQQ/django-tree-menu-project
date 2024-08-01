@@ -1,3 +1,5 @@
+import json
+
 from django.urls import resolve
 
 
@@ -40,3 +42,29 @@ def convert_menu_items_to_menu_tree(menu_items):
         return parent_item, []
 
     return list(build_tree(item[0]) for item in tree)
+
+
+def open_json_file_and_read_data(filepath):
+    """ Функция открывает json файл и считывает данные """
+
+    with open(filepath, 'r', encoding='utf-8') as file:
+        return json.load(file)
+
+
+def create_menu_for_command(menu_item_model, load_data):
+    """ Функция создаёт объекты меню на основе полученных данных """
+
+    def create_menu_item(item_data, parent=None):
+        item = menu_item_model.objects.create(
+            name=item_data['name'],
+            menu_name=item_data['menu_name'],
+            url=item_data.get('url'),
+            named_url=item_data.get('named_url'),
+            parent=parent
+        )
+
+        for child_data in item_data.get('children', []):
+            create_menu_item(child_data, parent=item)
+
+    for data in load_data:
+        create_menu_item(data)
