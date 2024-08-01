@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    'users'
+    'users',
+    'tree'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ LOGIN_URL = '/users/login'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+MAIN_MENU_PATH = Path(__file__).parent.parent.joinpath("data", "main_menu.json")
+PROFILE_MENU_PATH = Path(__file__).parent.parent.joinpath("data", "profile_menu.json")
+UNDER_MENU_PATH = Path(__file__).parent.parent.joinpath("data", "under_menu.json")

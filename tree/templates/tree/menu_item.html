@@ -1,0 +1,12 @@
+<li>
+    <a href="{{ item.get_url }}" class="{% if item.get_url == current_url %}active{% endif %}">
+        {{ item.name }}
+    </a>
+    {% if children %}
+        <ul>
+            {% for child, sub_children in children %}
+                {% include 'tree/menu_item.html' with item=child children=sub_children current_url=current_url %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

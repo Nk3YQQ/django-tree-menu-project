@@ -1,5 +1,5 @@
 run:
-	docker-compose up --build
+	docker-compose up --build -d
 
 run-test:
 	docker-compose -f docker-compose.dev.yml up --build -d
@@ -17,5 +17,11 @@ linters:
 stop:
 	docker-compose down
 
+clean:
+	docker-compose down --volumes
+
 clean-test:
 	docker-compose -f docker-compose.dev.yml down --volumes
+
+create_menu:
+	docker-compose exec -T app python3 manage.py create_menu
