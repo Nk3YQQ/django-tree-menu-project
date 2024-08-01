@@ -1,0 +1,17 @@
+[
+  {
+    "id": 10,
+    "name": "О нас",
+    "url": "/tree/about/",
+    "menu_name": "under_menu",
+    "children": [
+      {
+        "id": 11,
+        "name": "Команда",
+        "named_url": "tree:team_page",
+        "menu_name": "under_menu",
+        "children": []
+      }
+    ]
+  }
+]

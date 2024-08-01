@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "Главная",
+    "url": "/tree/",
+    "menu_name": "main_menu",
+    "children": []
+  },
+  {
+    "id": 2,
+    "name": "Товары",
+    "url": "/tree/products/",
+    "menu_name": "main_menu",
+    "children": [
+      {
+        "id": 3,
+        "name": "Категории",
+        "url": "/tree/products/category/",
+        "parent": "",
+        "menu_name": "main_menu",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Избранное",
+    "url": "/tree/favorites/",
+    "menu_name": "main_menu",
+    "children": []
+  },
+  {
+    "id": 5,
+    "name": "Корзина",
+    "url": "/tree/cart/",
+    "menu_name": "main_menu",
+    "children": []
+  }
+]

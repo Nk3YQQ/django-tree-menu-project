@@ -1,0 +1,32 @@
+[
+  {
+    "id": 6,
+    "name": "Профиль",
+    "url": "/users/profile/",
+    "menu_name": "profile_menu",
+    "children": [
+      {
+        "id": 7,
+        "name": "Настройки",
+        "url": "/users/profile/settings/",
+        "menu_name": "profile_menu",
+        "children": [
+          {
+            "id": 8,
+            "name": "Базовые настройки",
+            "named_url": "users:profile_settings_basic",
+            "menu_name": "profile_menu",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Верификация",
+        "named_url": "users:profile_verification",
+        "menu_name": "profile_menu",
+        "children": []
+      }
+    ]
+  }
+]
